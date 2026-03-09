@@ -1,0 +1,193 @@
+:root {
+    --primary-color: #40a4b5;
+    --primary-rgb: 64, 164, 181;
+
+    /* Default Dark Theme */
+    --bg-color: #141c1e;
+    --card-bg: #1e293b;
+    --card-bg-rgb: 30, 41, 59;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-muted-rgb: 148, 163, 184;
+    --border-color: #334155;
+    --input-bg: rgba(15, 23, 42, 0.4);
+    --header-bg: rgba(20, 28, 30, 0.8);
+    --sidebar-bg: #141c1e;
+    --dialog-bg: #1e293b;
+    --overlay-bg: #1e293b;
+}
+
+body.light-theme,
+html.light-theme {
+    --bg-color: #f1f5fb;
+    --card-bg: #ffffff;
+    --card-bg-rgb: 255, 255, 255;
+    --text-main: #000000;
+    --text-muted: #1e293b;
+    --text-muted-rgb: 30, 41, 59;
+    --border-color: #cbd5e1;
+    --input-bg: #ffffff;
+    --header-bg: #ffffff;
+    --sidebar-bg: #ffffff;
+    --dialog-bg: #ffffff;
+    --overlay-bg: #ffffff;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color) !important;
+    color: var(--text-main) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mat-icon,
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined' !important;
+    vertical-align: middle;
+}
+
+/* -------------------------------------------------------------------------- */
+/* GLOBAL MATERIAL COMPONENT OVERRIDES */
+/* -------------------------------------------------------------------------- */
+
+/* Cards */
+.mat-mdc-card {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Dialogs */
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    background-color: var(--dialog-bg) !important;
+    color: var(--text-main) !important;
+}
+
+.mat-mdc-dialog-title,
+.mat-mdc-dialog-content {
+    color: var(--text-main) !important;
+}
+
+/* Tables */
+.mat-mdc-table {
+    background-color: transparent !important;
+}
+
+th.mat-mdc-header-cell {
+    color: var(--text-main) !important;
+    font-weight: 700 !important;
+    background-color: rgba(var(--text-muted-rgb), 0.05) !important;
+}
+
+td.mat-mdc-cell {
+    color: var(--text-main) !important;
+}
+
+/* Form Fields & Labels */
+::ng-deep .mat-mdc-text-field-wrapper {
+    background-color: var(--input-bg) !important;
+}
+
+::ng-deep .mat-mdc-form-field {
+    --mdc-outlined-idle-outline-color: var(--border-color);
+    --mdc-outlined-hover-outline-color: var(--primary-color);
+}
+
+/* 
+ * 🚨 PLACEHOLDER & LABEL FIX 🚨
+ * Remove global 'opacity: 1' from placeholders to prevent collisions with labels.
+ */
+::ng-deep .mat-mdc-input-element::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* Force visibility for labels and select placeholders (no collision here) */
+::ng-deep .mat-mdc-form-field-label,
+::ng-deep .mat-mdc-floating-label,
+::ng-deep .mat-mdc-floating-label span,
+::ng-deep .mat-mdc-select-placeholder,
+::ng-deep .mat-mdc-select-value-text,
+::ng-deep .mat-mdc-paginator-page-size-label,
+::ng-deep .mat-mdc-paginator-range-label {
+    color: var(--text-main) !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+/* Icons Prefix */
+::ng-deep .mat-mdc-form-field-icon-prefix {
+    color: var(--primary-color) !important;
+}
+
+/* Buttons and Icons */
+.mat-mdc-icon-button {
+    color: var(--text-main) !important;
+}
+
+.mat-mdc-icon-button.mat-primary {
+    color: var(--primary-color) !important;
+}
+
+.mat-mdc-icon-button.mat-warn {
+    color: #dc2626 !important;
+}
+
+/* 🚨 COMPREHENSIVE PAGINATOR FIX 🚨 */
+::ng-deep .mat-mdc-paginator,
+::ng-deep .mat-mdc-paginator-container {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-select-value-text,
+::ng-deep .mat-mdc-paginator .mat-mdc-select-arrow {
+    color: var(--text-main) !important;
+    opacity: 1 !important;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button {
+    color: var(--text-main) !important;
+}
+
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button[disabled] {
+    color: var(--text-muted) !important;
+    opacity: 0.3;
+}
+
+/* Dropdown visibility */
+.mat-mdc-select-panel {
+    background-color: var(--overlay-bg) !important;
+}
+
+.mat-mdc-option,
+.mat-mdc-option .mdc-list-item__primary-text {
+    color: var(--text-main) !important;
+}
+
+/* Fallback for natives */
+body.light-theme select {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}

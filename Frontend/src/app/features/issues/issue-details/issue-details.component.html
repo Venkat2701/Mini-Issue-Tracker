@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Issue Details</h2>
+<mat-dialog-content>
+    <div class="details-container">
+        <div class="detail-row">
+            <span class="detail-label">Issue ID:</span>
+            <span class="detail-value">{{ data.issueId }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Title:</span>
+            <span class="detail-value title-text">{{ data.title }}</span>
+        </div>
+        <div class="detail-row description-row">
+            <span class="detail-label">Description:</span>
+            <span class="detail-value description-text">{{ data.description || 'No description provided.' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Priority:</span>
+            <span class="detail-value">
+                <span class="priority-badge" [ngClass]="data.priority.toLowerCase()">
+                    {{ data.priority }}
+                </span>
+            </span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Status:</span>
+            <span class="detail-value">
+                <span class="status-indicator" [ngClass]="data.status.toLowerCase().replace(' ', '-')">
+                    <span class="dot"></span>
+                    {{ data.status }}
+                </span>
+            </span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Assignee:</span>
+            <span class="detail-value">
+                {{ data.assignee?.fullName || 'Unassigned' }}
+            </span>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button color="primary" (click)="closeDialog()">Close</button>
+</mat-dialog-actions>

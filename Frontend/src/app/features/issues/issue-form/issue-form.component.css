@@ -1,0 +1,76 @@
+.issue-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+    background-color: var(--dialog-bg);
+}
+
+.full-width {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row mat-form-field {
+    flex: 1;
+}
+
+h2[mat-dialog-title] {
+    margin: 0;
+    font-weight: 700;
+    color: var(--text-main);
+    background-color: var(--dialog-bg);
+}
+
+mat-dialog-content {
+    background: var(--dialog-bg) !important;
+    padding-top: 20px !important;
+}
+
+mat-dialog-actions {
+    padding: 16px 24px !important;
+    background: var(--dialog-bg) !important;
+    border-top: 1px solid var(--border-color);
+}
+
+::ng-deep .cdk-overlay-pane {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+/* 🚨 COLLISION FIX 🚨 
+ * Separate the labels and the placeholders to prevent them overlapping.
+ * Force labels to be dark, but let placeholders handle their own opacity until focused.
+ */
+::ng-deep .issue-form .mat-mdc-form-field-label,
+::ng-deep .issue-form .mat-mdc-floating-label,
+::ng-deep .issue-form .mat-mdc-floating-label span,
+::ng-deep .issue-form .mat-mdc-select-placeholder {
+    color: var(--text-main) !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+/* Force placeholder only when focused OR if no label sits on it */
+::ng-deep .issue-form .mat-mdc-input-element::placeholder {
+    color: var(--text-muted) !important;
+    /* Do NOT set opacity: 1 !important here, it causes standard Material labels to collide */
+}
+
+/* Force typed input text to be visible */
+::ng-deep .issue-form .mat-mdc-input-element,
+::ng-deep .issue-form .mat-mdc-select-value {
+    color: var(--text-main) !important;
+    font-weight: 500 !important;
+}
+
+::ng-deep .issue-form .mat-mdc-form-field {
+    --mdc-outlined-idle-outline-color: var(--border-color);
+    --mdc-outlined-hover-outline-color: var(--primary-color);
+    --mdc-outlined-activated-outline-color: var(--primary-color);
+}

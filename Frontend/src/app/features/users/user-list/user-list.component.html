@@ -1,0 +1,128 @@
+<div class="user-list-container">
+    <div class="page-header">
+        <div class="header-text">
+            <h1>Manage Users</h1>
+            <p>Oversee user permissions and account statuses within your workspace.</p>
+        </div>
+        <button mat-flat-button color="primary" *ngIf="isAdmin" (click)="openUserForm()">
+            <mat-icon>person_add</mat-icon>
+            Add New User
+        </button>
+    </div>
+
+    <mat-card class="table-card">
+        <mat-tab-group>
+            <!-- Active Team Tab -->
+            <mat-tab label="Active Team">
+                <table mat-table [dataSource]="activeUsers">
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let user">
+                            <div class="name-cell">
+                                <div class="avatar">{{user.fullName.substring(0,2).toUpperCase()}}</div>
+                                <span>{{user.fullName}}</span>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="role">
+                        <th mat-header-cell *matHeaderCellDef> Role </th>
+                        <td mat-cell *matCellDef="let user">
+                            <span class="role-badge" [ngClass]="user.role.toLowerCase()">{{user.role}}</span>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let user">
+                            <span class="status-badge" [ngClass]="user.status.toLowerCase()">
+                                <span class="dot"></span>
+                                {{user.status}}
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef class="text-right"> Actions </th>
+                        <td mat-cell *matCellDef="let user" class="text-right">
+                            <ng-container *ngIf="isAdmin">
+                                <button mat-button color="primary" (click)="openUserForm(user)">Edit</button>
+                                <button mat-button color="warn" (click)="deleteUser(user.userId)">
+                                    Delete
+                                </button>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="5" style="text-align: center; padding: 20px;">No active team
+                            members.</td>
+                    </tr>
+                </table>
+            </mat-tab>
+
+            <!-- Access Requests Tab -->
+            <mat-tab label="Access Requests">
+                <table mat-table [dataSource]="pendingUsers">
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let user">
+                            <div class="name-cell">
+                                <div class="avatar">{{user.fullName.substring(0,2).toUpperCase()}}</div>
+                                <span>{{user.fullName}}</span>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="role">
+                        <th mat-header-cell *matHeaderCellDef> Role </th>
+                        <td mat-cell *matCellDef="let user">
+                            <span class="role-badge" [ngClass]="user.role?.toLowerCase() || ''">{{user.role}}</span>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let user">
+                            <span class="status-badge" [ngClass]="user.status.toLowerCase()">
+                                <span class="dot"></span>
+                                {{user.status}}
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef class="text-right"> Actions </th>
+                        <td mat-cell *matCellDef="let user" class="text-right">
+                            <ng-container *ngIf="isAdmin">
+                                <button mat-button color="primary" (click)="approveUser(user.userId)">Approve</button>
+                                <button mat-button color="warn" (click)="rejectUser(user.userId)">Reject</button>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="5" style="text-align: center; padding: 20px;">No pending access
+                            requests.</td>
+                    </tr>
+                </table>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+</div>

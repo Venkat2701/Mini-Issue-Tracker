@@ -1,0 +1,305 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Mini Issue Tracker - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#40a4b5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#141c1e",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b border-slate-200 bg-white/80 px-6 backdrop-blur-md dark:border-slate-800 dark:bg-background-dark/80">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-2xl" style="">pest_control</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white" style="">Mini Issue Tracker</h2>
+</div>
+<div class="hidden md:flex">
+<label class="relative block w-72" style="">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+<span class="material-symbols-outlined text-lg" style="">search</span>
+</span>
+<input class="block w-full rounded-lg border-0 bg-slate-100 py-2 pl-10 pr-3 text-sm placeholder-slate-500 focus:ring-2 focus:ring-primary dark:bg-slate-800 dark:text-slate-200 dark:placeholder-slate-400" placeholder="Search issues, tasks..." type="text">
+</label>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800" style="">
+<span class="material-symbols-outlined" style="">notifications</span>
+</button>
+<button class="flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800" style="">
+<span class="material-symbols-outlined" style="">settings</span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-semibold text-slate-900 dark:text-white leading-none" style="">Alex Rivera</p>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold mt-1" style="">Admin</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-slate-200 p-0.5 ring-2 ring-primary/20 dark:bg-slate-700">
+<img alt="User avatar" class="h-full w-full rounded-full object-cover" data-alt="Professional profile portrait of a male user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGIriSLLnpDOAwdRhKLU6IcCshu7lJD4btzN4GgU_3ku8V3treUJ8hVSfJTlBFlultXyJHt7wXva5Jgi-LwWB00UrmEWJMIMbiA6uqaRjPF3FKC1Su0R4cBoUWVeUa-bTty2KvflkayTymNmiY3ICbuwIBUPQL_9MJZ5l6Z8uoF6NAnwDMsukRLBMcqrNBKD8H-1Yt8sSIWguWQXGYP626ck58-_YEIWICO3dRQ1T4fvPLAAbfiQAlUEqUJ4EnjFagGP443EHofxm9" style="">
+</div>
+<button class="flex items-center text-slate-400 hover:text-red-500 transition-colors" style="">
+<span class="material-symbols-outlined" style="">logout</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex flex-1">
+<aside class="hidden w-64 flex-col border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-background-dark md:flex">
+<div class="flex flex-1 flex-col gap-2 p-4">
+<div class="mb-4 px-2">
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400" style="">Navigation</p>
+</div>
+<a class="flex items-center gap-3 rounded-lg bg-primary/10 px-3 py-2 text-primary" href="#" style="">
+<span class="material-symbols-outlined" style="">dashboard</span>
+<span class="text-sm font-semibold" style="">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50 transition-all" href="#" style="">
+<span class="material-symbols-outlined" style="">assignment</span>
+<span class="text-sm font-medium" style="">Issues</span>
+<span class="ml-auto rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-bold text-primary" style="">24</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50 transition-all" href="#" style="">
+<span class="material-symbols-outlined" style="">group</span>
+<span class="text-sm font-medium" style="">Team Members</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50 transition-all" href="#" style="">
+<span class="material-symbols-outlined" style="">bar_chart</span>
+<span class="text-sm font-medium" style="">Reporting</span>
+</a>
+<div class="mt-8 mb-4 px-2">
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400" style="">Projects</p>
+</div>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50 transition-all" href="#" style="">
+<span class="h-2 w-2 rounded-full bg-primary"></span>
+<span class="text-sm font-medium" style="">Enterprise Portal</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50 transition-all" href="#" style="">
+<span class="h-2 w-2 rounded-full bg-orange-400"></span>
+<span class="text-sm font-medium" style="">Mobile App v2</span>
+</a>
+</div>
+<div class="border-t border-slate-200 p-4 dark:border-slate-800">
+<div class="flex flex-col gap-4 rounded-xl bg-primary/5 p-4 dark:bg-primary/10">
+<p class="text-xs font-semibold text-slate-900 dark:text-slate-100" style="">Enterprise v2.0</p>
+<p class="text-[10px] text-slate-500 dark:text-slate-400" style="">Your organization is currently on the Pro Tier subscription.</p>
+<button class="w-full rounded-lg bg-primary py-2 text-xs font-bold text-white hover:bg-primary/90" style="">Upgrade Plan</button>
+</div>
+</div>
+</aside>
+<main class="flex-1 p-6 lg:p-10 overflow-y-auto max-w-7xl mx-auto">
+<div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+<div>
+<h1 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white" style="">Dashboard Overview</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1" style="">Welcome back! Here is what's happening with your projects today.</p>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all" style="">
+<span class="material-symbols-outlined text-lg" style="">add</span>
+                        New Issue
+                    </button>
+</div>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+<div class="group relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-slate-200 dark:border-slate-800 dark:bg-slate-900 transition-all hover:border-primary/50">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400" style="">Open Issues</p>
+<p class="mt-2 text-3xl font-bold text-slate-900 dark:text-white" style="">24</p>
+</div>
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500 dark:bg-blue-500/20">
+<span class="material-symbols-outlined text-2xl" style="">inbox_customize</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-1.5">
+<span class="flex items-center text-xs font-bold text-green-500" style="">
+<span class="material-symbols-outlined text-xs" style="">arrow_upward</span> 5%
+                            </span>
+<span class="text-xs text-slate-400" style="">from last week</span>
+</div>
+<div class="absolute bottom-0 left-0 h-1 w-full bg-blue-500/20">
+<div class="h-full bg-blue-500 transition-all duration-500" style="width: 45%;"></div>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-slate-200 dark:border-slate-800 dark:bg-slate-900 transition-all hover:border-primary/50">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400" style="">In Progress</p>
+<p class="mt-2 text-3xl font-bold text-slate-900 dark:text-white" style="">12</p>
+</div>
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-500/10 text-orange-500 dark:bg-orange-500/20">
+<span class="material-symbols-outlined text-2xl" style="">pending_actions</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-1.5">
+<span class="flex items-center text-xs font-bold text-red-500" style="">
+<span class="material-symbols-outlined text-xs" style="">arrow_downward</span> 2%
+                            </span>
+<span class="text-xs text-slate-400" style="">from last week</span>
+</div>
+<div class="absolute bottom-0 left-0 h-1 w-full bg-orange-500/20">
+<div class="h-full bg-orange-500 transition-all duration-500" style="width: 30%;"></div>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-slate-200 dark:border-slate-800 dark:bg-slate-900 transition-all hover:border-primary/50">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400" style="">Closed</p>
+<p class="mt-2 text-3xl font-bold text-slate-900 dark:text-white" style="">184</p>
+</div>
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-500/10 text-green-500 dark:bg-green-500/20">
+<span class="material-symbols-outlined text-2xl" style="">check_circle</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-1.5">
+<span class="flex items-center text-xs font-bold text-green-500" style="">
+<span class="material-symbols-outlined text-xs" style="">arrow_upward</span> 12%
+                            </span>
+<span class="text-xs text-slate-400" style="">from last week</span>
+</div>
+<div class="absolute bottom-0 left-0 h-1 w-full bg-green-500/20">
+<div class="h-full bg-green-500 transition-all duration-500" style="width: 85%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-10">
+<div class="mb-6 flex items-center justify-between">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white" style="">Recent Activity</h2>
+<button class="text-sm font-semibold text-primary hover:underline" style="">View all issues</button>
+</div>
+<div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300" style="">Issue ID</th>
+<th class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300" style="">Title</th>
+<th class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300" style="">Priority</th>
+<th class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300" style="">Status</th>
+<th class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300" style="">Updated</th>
+<th class="px-6 py-4 font-bold text-slate-700 dark:text-slate-300" style="">Assignee</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="whitespace-nowrap px-6 py-4 font-medium text-primary" style="">#ISS-1240</td>
+<td class="px-6 py-4 text-slate-900 dark:text-white font-medium" style="">Authentication bypass vulnerability on mobile login</td>
+<td class="px-6 py-4" style="">
+<span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-bold text-red-600 dark:bg-red-500/10 dark:text-red-400" style="">High</span>
+</td>
+<td class="px-6 py-4" style="">
+<span class="inline-flex items-center gap-1.5 text-orange-500 font-semibold" style="">
+<span class="h-1.5 w-1.5 rounded-full bg-orange-500"></span>
+                                                In Progress
+                                            </span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400" style="">2 mins ago</td>
+<td class="px-6 py-4" style="">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="Assignee" data-alt="Small round avatar of a team member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOqGTZkqaGF4uvNRJzBmoylAaOqzmkeGWE-QVXCsxiQGXWNx8eKEguoTSKCGkA5IwlUlsK0e16jgXwWXiYdzCov4s1F86BZ5kvWv-D1b8KanJE4_ZfvE3pd2axxO_8pdGTclACSo8LLPjOl1dADhMo2t2fe2whG9Q6qcTn2eb5eGGBlUZjQSnAEPzmOKugggirWNCcgXAmqIcm4mUSrZkdEpKw-0jPu-m6CxzuE3vnByqerHTtJVEC4lyJdugDp1XDE6RQlW-vSNKp" class="" style="">
+</div>
+<span class="text-xs" style="">John D.</span>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="whitespace-nowrap px-6 py-4 font-medium text-primary" style="">#ISS-1238</td>
+<td class="px-6 py-4 text-slate-900 dark:text-white font-medium" style="">Broken image link in footer on landing page</td>
+<td class="px-6 py-4" style="">
+<span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-bold text-slate-600 dark:bg-slate-800 dark:text-slate-400" style="">Low</span>
+</td>
+<td class="px-6 py-4" style="">
+<span class="inline-flex items-center gap-1.5 text-blue-500 font-semibold" style="">
+<span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                                                Open
+                                            </span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400" style="">45 mins ago</td>
+<td class="px-6 py-4" style="">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="Assignee" data-alt="Small round avatar of a female team member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmXJoTL5NfWqwwN5oOq_sfip1wJ5ASD6ft1NQSv7ubUSg-eCwejYhz1sIN-DWz2aTIOjyFwXcQeA8QwNlVPHqDMDcwNjQwTCuVFicbJ9lq13Ej3AMq-AQ4FzWdNShIrUmj5pjGKT_BuKanuJyCET-S0yhW183QWLVYhyIcYxCHNFAHUcXQCLROWx34lAgZ3gWdS9gs9LWqHWaLg3Ql78MdFz_D9IHvc6DDSyLto3o90KjqNBLT-Wu6Y7E9WaDw3WSIeiliMuE8p2ds" class="" style="">
+</div>
+<span class="text-xs" style="">Sarah K.</span>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="whitespace-nowrap px-6 py-4 font-medium text-primary" style="">#ISS-1235</td>
+<td class="px-6 py-4 text-slate-900 dark:text-white font-medium" style="">Unable to export reports as CSV format</td>
+<td class="px-6 py-4" style="">
+<span class="inline-flex items-center rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-bold text-yellow-600 dark:bg-yellow-500/10 dark:text-yellow-400" style="">Medium</span>
+</td>
+<td class="px-6 py-4" style="">
+<span class="inline-flex items-center gap-1.5 text-green-500 font-semibold" style="">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                                Closed
+                                            </span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400" style="">2 hours ago</td>
+<td class="px-6 py-4" style="">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden text-[10px] flex items-center justify-center font-bold" style="">AR</div>
+<span class="text-xs" style="">Alex R.</span>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="whitespace-nowrap px-6 py-4 font-medium text-primary" style="">#ISS-1230</td>
+<td class="px-6 py-4 text-slate-900 dark:text-white font-medium" style="">Search results pagination showing incorrect count</td>
+<td class="px-6 py-4" style="">
+<span class="inline-flex items-center rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-bold text-yellow-600 dark:bg-yellow-500/10 dark:text-yellow-400" style="">Medium</span>
+</td>
+<td class="px-6 py-4" style="">
+<span class="inline-flex items-center gap-1.5 text-orange-500 font-semibold" style="">
+<span class="h-1.5 w-1.5 rounded-full bg-orange-500"></span>
+                                                In Progress
+                                            </span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400" style="">5 hours ago</td>
+<td class="px-6 py-4" style="">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img alt="Assignee" data-alt="Small round avatar of a male developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnVNr5QOpuusfBuNnv-9O3DrpdhNUmRZny5SmBxM1INdojSjfTA7uL5Wo91CE-6ydHHomxgP8uJQhcvcw_gn7tOcT27kUzQWqnD2lVloVMr3Awu5cng9qBoiBvzOLWfiUJH_27muVojwNK610jchQ2x3GGrKPQ2MtWpHJNy9E8bqljbernG97H6raDumIzv3kIQAzs9Lk8wwf6HV72_ukfEauurqLUjnB9cVwm9ysK0s-54trTLr9XacJrdqRMU2bSrnl-HMTF8wqv" class="" style="">
+</div>
+<span class="text-xs" style="">Mark S.</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex items-center justify-between border-t border-slate-200 px-6 py-4 dark:border-slate-800">
+<p class="text-xs text-slate-500" style="">Showing 4 of 24 active issues</p>
+<div class="flex gap-2">
+<button class="rounded border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-600 disabled:opacity-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400" disabled="" style="">Previous</button>
+<button class="rounded border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-600 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800" style="">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

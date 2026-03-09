@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mini Issue Tracker - Manage Users</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#40a4b5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#141c1e",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-primary/20 px-4 md:px-10 py-3 bg-white dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">token</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em]">Mini Issue Tracker</h2>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-primary/10 text-slate-700 dark:text-primary transition-colors hover:bg-primary/20">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-primary/10 text-slate-700 dark:text-primary transition-colors hover:bg-primary/20">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<div class="flex grow h-full">
+<!-- Sidebar -->
+<aside class="hidden lg:flex flex-col w-64 border-r border-slate-200 dark:border-primary/20 p-4 gap-6 bg-white dark:bg-background-dark">
+<div class="flex items-center gap-3">
+<div class="bg-primary/20 rounded-full size-10 flex items-center justify-center overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="Admin user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR8qufA9fKdHw65LhhUw_RZVdbfODT8XcLNrLBauoEenAJAwJbb1TzNMS3ffwKiuNruIQJnhwcijQ9Pb_uv2HLNl0ZOHuK14sAjkYu4oP1nghiEDEEq6v5VJufI3kHCJaUXcUG9vsYaFFu66_ZFVVtkYnJympEeTxj8xNCbhj6n9b6_libtoMeKfFrLxeCSGIegerPLRUBGyR6NxL70aM3VjSAoaN_nyvOOJ5RJoFP-5nUh38R36RVcbFj67_-HvmHHpOieDx754dI"/>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-100 text-sm font-semibold">Admin Console</h1>
+<p class="text-slate-500 dark:text-primary/70 text-xs">v1.0.4</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary text-white rounded-lg shadow-lg shadow-primary/20" href="#">
+<span class="material-symbols-outlined text-xl">group</span>
+<span class="text-sm font-medium">Manage Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-xl">bug_report</span>
+<span class="text-sm font-medium">Issues</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col p-4 md:p-8 lg:p-10 max-w-7xl mx-auto w-full">
+<!-- Page Heading -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+<div class="flex flex-col gap-1">
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl font-bold tracking-tight">Manage Users</h1>
+<p class="text-slate-500 dark:text-slate-400">Oversee user permissions and account statuses within your workspace.</p>
+</div>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold text-sm transition-all shadow-lg shadow-primary/25">
+<span class="material-symbols-outlined text-xl">person_add</span>
+<span>Add New User</span>
+</button>
+</div>
+<!-- Search and Filters -->
+<div class="mb-6">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400 dark:text-primary/60 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="block w-full h-12 pl-12 pr-4 bg-white dark:bg-background-dark border border-slate-200 dark:border-primary/20 focus:ring-2 focus:ring-primary/20 focus:border-primary rounded-xl text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 transition-all" placeholder="Search users by name, email, or role..." type="text"/>
+</div>
+</div>
+<!-- User Table -->
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-primary/20 rounded-xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-primary/5 border-b border-slate-200 dark:border-primary/20">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70">Name</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70">Email</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70">Role</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70">Status</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-primary/70 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-primary/10">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">AR</div>
+<span class="font-medium text-slate-900 dark:text-slate-100">Alex Rivera</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-500 dark:text-slate-400">alex.r@company.com</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">Admin</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-green-400"></span>
+                                                Active
+                                            </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-3 text-sm font-semibold">
+<button class="text-primary hover:text-primary/80 transition-colors">Edit</button>
+<button class="text-rose-500 hover:text-rose-600 transition-colors">Deactivate</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">JL</div>
+<span class="font-medium text-slate-900 dark:text-slate-100">Jordan Lee</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-500 dark:text-slate-400">j.lee@company.com</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">Developer</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-green-400"></span>
+                                                Active
+                                            </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-3 text-sm font-semibold">
+<button class="text-primary hover:text-primary/80 transition-colors">Edit</button>
+<button class="text-rose-500 hover:text-rose-600 transition-colors">Deactivate</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">MC</div>
+<span class="font-medium text-slate-900 dark:text-slate-100">Morgan Chen</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-500 dark:text-slate-400">m.chen@company.com</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300">Reporter</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-500">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                                                Inactive
+                                            </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-3 text-sm font-semibold">
+<button class="text-primary hover:text-primary/80 transition-colors">Edit</button>
+<button class="text-primary hover:text-primary/80 transition-colors">Activate</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">TS</div>
+<span class="font-medium text-slate-900 dark:text-slate-100">Taylor Swift</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-slate-500 dark:text-slate-400">t.swift@company.com</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">Developer</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600 dark:bg-green-400"></span>
+                                                Active
+                                            </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-3 text-sm font-semibold">
+<button class="text-primary hover:text-primary/80 transition-colors">Edit</button>
+<button class="text-rose-500 hover:text-rose-600 transition-colors">Deactivate</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-slate-50 dark:bg-primary/5 border-t border-slate-200 dark:border-primary/20 flex items-center justify-between">
+<span class="text-sm text-slate-500 dark:text-slate-400">Showing 1 to 4 of 24 users</span>
+<div class="flex gap-2">
+<button class="p-2 border border-slate-200 dark:border-primary/20 rounded-lg hover:bg-slate-100 dark:hover:bg-primary/10 disabled:opacity-50 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="p-2 border border-slate-200 dark:border-primary/20 rounded-lg hover:bg-slate-100 dark:hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</body></html>

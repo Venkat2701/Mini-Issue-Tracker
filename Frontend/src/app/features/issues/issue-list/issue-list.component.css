@@ -1,0 +1,223 @@
+.issue-list-container {
+    padding-bottom: 40px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.toolbar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.search-field {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Ensure Search Prefix Icon */
+.search-field mat-icon[matPrefix] {
+    color: var(--primary-color) !important;
+    opacity: 1 !important;
+}
+
+/* 
+ * 🚨 TOOLBAR VISIBILITY FIX: Separate labels and placeholders to prevent collisions.
+ */
+::ng-deep .toolbar .mat-mdc-form-field-label,
+::ng-deep .toolbar .mat-mdc-floating-label,
+::ng-deep .toolbar .mat-mdc-floating-label span,
+::ng-deep .toolbar .mat-mdc-select-placeholder {
+    color: var(--text-main) !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+/* Force Search placeholder visibility (It has no label, so no collision is possible) */
+::ng-deep .search-field .mat-mdc-input-element::placeholder {
+    color: var(--text-main) !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+/* General select value and arrow visibility */
+::ng-deep .toolbar .mat-mdc-select-value {
+    color: var(--text-main) !important;
+    font-weight: 600 !important;
+}
+
+::ng-deep .toolbar .mat-mdc-select-arrow {
+    color: var(--primary-color) !important;
+    opacity: 1 !important;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.table-card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+}
+
+th.mat-header-cell {
+    background: rgba(var(--text-muted-rgb), 0.05);
+    color: var(--text-main) !important;
+    font-size: 12px;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom-color: var(--border-color);
+}
+
+td.mat-cell {
+    color: var(--text-main);
+    border-bottom-color: var(--border-color);
+    padding: 12px 24px !important;
+}
+
+.title-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.sub-title {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.priority-badge {
+    display: inline-flex;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.priority-badge.high {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.priority-badge.medium {
+    background: rgba(234, 179, 8, 0.1);
+    color: #eab308;
+}
+
+.priority-badge.low {
+    background: rgba(var(--text-muted-rgb), 0.1);
+    color: var(--text-muted);
+}
+
+.status-select {
+    width: 120px;
+}
+
+.status-select ::ng-deep .mat-mdc-text-field-wrapper {
+    background-color: var(--bg-color) !important;
+    border-radius: 8px !important;
+    padding: 0 8px !important;
+}
+
+.status-select ::ng-deep .mat-mdc-form-field-infix {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    min-height: auto !important;
+}
+
+.status-select ::ng-deep .mat-mdc-select-value {
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mat-paginator {
+    border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .search-field {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .filter-actions {
+        width: 100%;
+    }
+}
+
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    padding: 8px 12px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.status-indicator.open {
+    color: #3b82f6;
+}
+
+.status-indicator.open .dot {
+    background: #3b82f6;
+}
+
+.status-indicator.in-progress {
+    color: #f97316;
+}
+
+.status-indicator.in-progress .dot {
+    background: #f97316;
+}
+
+.status-indicator.closed {
+    color: #22c55e;
+}
+
+.status-indicator.closed .dot {
+    background: #22c55e;
+}
+
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.clickable-row:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.05);
+}

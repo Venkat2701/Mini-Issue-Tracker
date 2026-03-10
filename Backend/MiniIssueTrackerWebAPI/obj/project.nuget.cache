@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wHiXIpNjRBY=",
+  "dgSpecHash": "fEpAfJUJ8N8=",
   "success": true,
-  "projectFilePath": "F:\\Visual studio\\projects\\MiniIssueTrackerWebAPI\\MiniIssueTrackerWebAPI\\MiniIssueTrackerWebAPI\\MiniIssueTrackerWebAPI.csproj",
+  "projectFilePath": "F:\\VScode\\Projects\\MiniIssueTracker-FullStack\\Backend\\MiniIssueTrackerWebAPI\\MiniIssueTrackerWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\venka\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\venka\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
